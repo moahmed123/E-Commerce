@@ -1,0 +1,50 @@
+/** Color For Content For Text And Span For heading Scetion Home and about **/
+h2:before,
+.home-page .content-home h1 span,
+.about-page h2 span{    
+    color: #673AB7;    
+}
+.home-page .content-home h1:after{  
+    border-bottom: 4px solid #673AB7;
+}
+/** Start icon-max && Close **/
+.about-page .icon-max,
+.services-page .icon-max,
+.contact-page .icon-max,
+.portfolio-page .icon-max,
+.portfolio-page .filter-port .content-icon .middle-cell a:hover, /** Hove For Color Icon **/
+.dot1, /** Color For Loading **/
+.dot2, /** Color For Loading **/
+.portfolio-page .nav-portfolio ul li.active /** active Nav In Portfolio **/
+{        
+    background: #673AB7;        
+}
+/** Color For Scroll Body And All Text **/
+body::-webkit-scrollbar-thumb,
+.services-page .container-scroll::-webkit-scrollbar-thumb,
+.contact-page .container-scroll::-webkit-scrollbar-thumb,
+.portfolio-page .container-scroll::-webkit-scrollbar-thumb,
+.about-page .container-scroll::-webkit-scrollbar-thumb{
+    background: #673AB7;
+}
+/** Bottom Molo **/
+.btn-molo{
+    background-color: #673ab7;
+}
+.btn-molo-border,
+.btn-molo{    
+    border-color: #673AB7;    
+}
+/** Heading Color For Service **/
+.services-page h3:before,
+.navbar-dark .navbar-nav .nav-item:before{ 
+    border-bottom: 2px solid #673AB7;           
+}
+/** Border For Portfolio**/
+.portfolio-page .nav-portfolio ul li{
+    border: 1px solid #673AB7;
+}
+.contact-page form .form-input:focus,
+.contact-page form .textarea-input:focus{
+    border-bottom: 2px solid #673AB7;
+}

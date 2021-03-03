@@ -1,0 +1,678 @@
+/*
+    Author          : Mohamed Alaa Abas
+    Author URI      : https://themeforest.net/user/m_alaa/portfolio
+    Author Facebook : https://www.facebook.com/SoftTheme-413907182303490/
+    Author Email    : mohamedalaaabas93@gmail.com .
+**/
+*{
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*--------------------------------------------
+              Body And Scroll Design
+---------------------------------------------*/
+body{        
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;    
+    line-height: 1.4;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;        
+    font-weight: 300;
+    color: #fff;
+    
+}
+/************************
+   ** Start Framework ** 
+ ***********************/
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: 'Roboto', sans-serif;
+}
+h2{
+    font-size: 3em;
+    text-transform: uppercase;
+    color: #e6e6e6;
+    padding: 25px;
+    font-weight: 200;
+    margin: 0;
+    padding-top: 0;
+    letter-spacing: 1px;
+}
+h2:before{
+    content: attr(data-text);
+    position: absolute;
+    white-space: nowrap;
+    color: #673AB7;
+    width: 16%;    
+    overflow: hidden;
+}
+a, a:hover, a:focus{
+    color: #333;
+}
+p{
+    padding: 15px 0;
+    font-size: 16px;
+    font-weight: 300;
+    padding-top: 0;
+    line-height: 30px;
+    color: #2b2b2b;
+}
+/** All Page **/
+.about-page,
+.services-page,
+.contact-page,
+.portfolio-page{
+    height: 80%;
+    width: 90%;
+    background: #fff;    
+    position: absolute;
+    left: 0;
+    margin: auto;
+    right: 0;
+    display: none;
+    z-index: 22;
+    top: 10%;
+    z-index: 333;
+    border-radius: 5px;
+    color: #333;    
+    padding: 0;
+}
+.about-page .container-scroll,
+.services-page .container-scroll,
+.contact-page .container-scroll,
+.portfolio-page .container-scroll{
+    height: 92%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.about-page  .row.height-all,
+.services-page .row.height-all,
+.contact-page  .row.height-all,
+.portfolio-page .row.height-all{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    right: 0;
+    margin: 0;
+}
+.about-page .container-scroll .container,
+.services-page .container-scroll .container,
+.contact-page .container-scroll .container,
+.portfolio-page .container-scroll .container{
+    height: 100%;
+    width: 100%;    
+}
+.about-page .container-scroll .row.list,
+.services-page .container-scroll .row.list,
+.contact-page .container-scroll .row.list,
+.portfolio-page .container-scroll .row.list{
+    padding: 75px 0;
+}
+/** Start icon-max && Close **/
+.about-page .icon-max,
+.services-page .icon-max,
+.contact-page .icon-max,
+.portfolio-page .icon-max{    
+    top: 0;
+    right: 0;
+    padding: 0;
+    background: #673AB7;
+    height: 8%;   
+    
+}
+.about-page .table-icon-top,
+.services-page .table-icon-top,
+.contact-page .table-icon-top,
+.portfolio-page .table-icon-top{
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.about-page .icon-max span,
+.services-page .icon-max span,
+.contact-page .icon-max span,
+.portfolio-page .icon-max span{
+    padding: 0px 10px;        
+    width: 100%;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;    
+}
+.about-page .icon-max span svg.max-min,
+.services-page .icon-max span svg.max-min,
+.contact-page .icon-max span svg.max-min,
+.portfolio-page .icon-max span svg.max-min{
+    margin-right: 10px; 
+}
+.about-page.full-width .icon-max span svg.max-min,
+.services-page.full-width .icon-max span svg.max-min,
+.contact-page.full-width .icon-max span svg.max-min,
+.portfolio-page.full-width .icon-max span svg.max-min{    
+    height: 14px;
+    transform: translate(0px,-6px);
+}
+.about-page .icon-max span svg,
+.services-page .icon-max span svg,
+.contact-page .icon-max span svg,
+.portfolio-page .icon-max span svg{
+    cursor: pointer;
+}
+/** End icon-max && Close **/
+/** click To Full Screen  **/
+.about-page.full-width,
+.services-page.full-width,
+.contact-page.full-width,
+.portfolio-page.full-width{
+    width: 100% !important; 
+    height: 100% !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    z-index: 3333;
+    border-radius: 0px;
+}
+.ui-draggable-dragging{
+    cursor: move;
+}
+/** Scroll Section  **/
+body::-webkit-scrollbar,
+.contact-page .container-scroll::-webkit-scrollbar,
+.services-page .container-scroll::-webkit-scrollbar,
+.portfolio-page .container-scroll::-webkit-scrollbar,
+.about-page .container-scroll::-webkit-scrollbar{
+    width: .4em;
+}
+body::-webkit-scrollbar-track ,
+.services-page .container-scroll::-webkit-scrollbar-track,
+.contact-page .container-scroll::-webkit-scrollbar-track,
+.portfolio-page .container-scroll::-webkit-scrollbar-track,
+.about-page .container-scroll::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+} 
+body::-webkit-scrollbar-thumb,
+.services-page .container-scroll::-webkit-scrollbar-thumb,
+.contact-page .container-scroll::-webkit-scrollbar-thumb,
+.portfolio-page .container-scroll::-webkit-scrollbar-thumb,
+.about-page .container-scroll::-webkit-scrollbar-thumb{ 
+  outline: 1px solid #333;
+}
+body::-webkit-scrollbar-thumb,
+.services-page .container-scroll::-webkit-scrollbar-thumb,
+.contact-page .container-scroll::-webkit-scrollbar-thumb,
+.portfolio-page .container-scroll::-webkit-scrollbar-thumb,
+.about-page .container-scroll::-webkit-scrollbar-thumb{
+    background: #673AB7; /** Color For Scroll **/
+}
+/** Botton Molo **/
+.btn-molo{
+    background-color: #673ab7;
+    border-color: #673ab7;
+    padding: 10px 17px;
+    color: #fff;
+}
+.btn-molo-border{
+    color: #333;
+    background-color: transparent;
+    border-color: #673ab7;
+    padding: 10px 17px;
+}
+
+/** Scroll Section  **/
+/************************
+   ** End Framework ** 
+ ***********************/
+
+/***********************
+ ***** Start Nav ******* 
+ ***********************/
+.navbar{
+    padding: 0.8rem 1rem;
+}
+.navbar-dark .navbar-brand {
+    color: #fff;
+    font-size: 23px;
+    font-weight: 600; 
+}
+.navbar.navbar-default{
+    background: transparent;
+    border: none;
+    padding: 15px 0;
+}
+.navbar-dark .navbar-nav .nav-item{
+    position: relative;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: capitalize;
+}
+.navbar-dark .navbar-nav .nav-item:before{
+    content: '';
+    position: absolute;        
+    width: 0;
+    border-bottom: 2px solid #673AB7;    
+    transition: all .6s ease-in-out;
+    bottom: 0;
+    transform: translate(7px, 0);
+}
+.navbar-dark .navbar-nav .active:before{    
+    width: 50%;    
+    transition: all .6s ease-in-out;
+}
+/***********************
+ ******* End Nav ******* 
+ ***********************/
+/***********************
+******* homePage ******
+***********************/
+.home-page.main-page{
+    background-color: rgba(0, 0, 0, 0.61);
+    background-image: url(../images/bg2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-position: center center;
+}
+.home-page{
+    position: relative;    
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+.home-page .social-media{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 20px;
+    list-style: none;
+}
+.home-page .social-media li{
+    display: inline-block;
+    padding: 0 10px;
+}
+.home-page .social-media li a{
+    color: #8b8b8b;
+}
+.home-page .copy-right{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 20px;
+    font-size: 14px;
+    margin: 0;
+    color: #8b8b8b;
+}
+.home-page .molo-welcome{
+    font-size: 18px;
+    transform: translate(0,-40px);
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: capitalize;
+    display: none;
+}
+.home-page .molo-welcome span{
+    display: block;
+}
+.home-page .content-home h1{
+    font-size: 4em;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+}
+.home-page .content-home h1:after{
+    content: "";
+    border-bottom: 4px solid #fff;
+    padding: 0;
+    padding-left: 2em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(0,70px);
+    
+}
+/***********************
+******* homePage ******
+***********************/
+/***********************
+******* AboutPage ******
+***********************/
+.about-page h2{
+    font-size: 42px;
+    font-weight: 500;    
+    line-height: 55px;
+    padding: 0;
+    color: #7d7d7d;
+    padding-bottom: 15px;
+    text-transform: capitalize;
+    letter-spacing: 0;
+}
+.about-page .btn-molo{
+    color: #fff !important;    
+}
+.about-page .btn-molo-border{
+    margin-right: 10px;
+}
+.about-page figcaption.figure-caption{
+    padding: 10px 0;
+}
+.about-page p:first-of-type{
+    font-weight: 400;
+    margin: 0;
+    padding-bottom: 5px;
+}
+/***********************
+******* AboutPage ******
+***********************/
+/************************
+    Start servicePage
+************************/
+.services-page .service-pragraph{
+    padding: 25px 22%;    
+    letter-spacing: .7px;
+    line-height: 28px;
+    font-size: 15px;
+    margin-top: 0;
+    padding-top: 0;
+}
+.services-page h2::before{    
+    width: 185px;
+}
+.services-page .service-body.active h3{
+    color: #397cd6;
+}
+.services-page .box-service{    
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    text-align: left;
+    padding-right: 0;
+    padding-left: 0;
+}
+.services-page h3{
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    padding: 5px 0;    
+    text-transform: capitalize;
+    margin: 0px;
+}
+.services-page h3:before{
+    content: '';
+    position: absolute;
+    padding-left: 48px;
+    border: none;
+    border-bottom: 2px solid #673AB7;       
+    margin-top: 32px;
+}
+.services-page .service-body{
+    padding-top: 15px;
+}
+.services-page p{
+    color: #333;
+    padding: 0;
+    line-height: 25px;
+    margin-top: 15px;
+    font-size: 13px;
+    margin-bottom: 0;
+}
+/************************
+    End ServicePage
+************************/
+/************************
+  Start Page Portfoilio 
+************************/
+.portfolio-page .nav-portfolio ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.portfolio-page h2::before{    
+    width: 183px;
+}
+.portfolio-page .nav-portfolio ul li{
+    display: inline-block;
+    padding: 10px 15px;
+    border: 1px solid #673ab7;
+    font-size: 15px;
+    text-transform: capitalize;
+    color: #000;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+.portfolio-page .nav-portfolio ul li.active{
+    background: #673AB7;
+    color: #fff;
+    transition: all .4s ease-in-out;
+}
+.portfolio-page .filter-port {  
+    margin: 1rem 0;
+    margin-top: 0;
+    -webkit-column-count: 3; 
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 1rem;
+    -moz-column-gap: 1rem;
+    column-gap: 1rem;
+    margin-bottom: 0;
+}
+.portfolio-page .filter-port .tile { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: all 350ms ease;
+    transition: all 350ms ease;
+
+}
+.portfolio-page .filter-port .scale-anm {
+    transform: scale(1);
+    margin-top: 1rem;
+}
+.portfolio-page .filter-port .tile img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;     
+}
+.portfolio-page .filter-port .content-work{
+    position: relative;
+}
+.portfolio-page .filter-port .content-icon{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;   
+    background: rgba(0, 0, 0, 0.72);
+    left: 0;  
+    transition: all .6s ease-in-out;
+    opacity: 0;
+}
+.portfolio-page .filter-port .content-work:hover .content-icon{
+    transition: all .6s ease-in-out;
+    opacity: 1;    
+}
+.portfolio-page .filter-port .content-work:hover .table-icon{
+    transform: translate(0);
+    transition: all .6s ease-in-out;
+}
+.portfolio-page .filter-port .content-icon .table-icon{
+    display: table;
+    width: 100%;
+    height: 100%;
+    transform: translate(0,25px);
+    transition: all .6s ease-in-out;
+}
+.portfolio-page .filter-port .content-icon .table-icon .middle-cell{
+    display: table-cell;
+    vertical-align: middle;
+}
+/*Icon f00e */
+.portfolio-page .filter-port .content-icon .middle-cell a{       
+    background: rgba(0, 0, 0, 0.85);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 14px;
+    transition: all .4s ease-in-out;
+}
+.portfolio-page .filter-port .content-icon .middle-cell a:hover{
+    background: #673AB7;
+    transition: all .4s ease-in-out;
+}
+.portfolio-page .filter-port .content-icon .middle-cell .magnific-icon:after{
+    content: '\f00e';
+    font-family: 'FontAwesome';
+    color: #fff;
+}
+.portfolio-page .filter-port .content-icon .middle-cell .link-icon:after{
+    content: '\f0c1';
+    font-family: 'FontAwesome';
+    color: #fff;
+}
+.mfp-figure small{
+    display: none;
+}
+/** MAGNIFIC POPUPS **/
+.mfp-bg{
+    z-index: 3990;
+}
+.mfp-wrap{
+    z-index: 4000;
+}
+/************************
+  End Page Portfoilio 
+************************/
+
+/****************************
+   *** Start Contact  ***  
+ ****************************/
+.contact-page h2::before{
+    width: 188px;
+}
+.contact-page p{    
+    padding: 25px 22%;    
+    letter-spacing: .7px;
+    line-height: 28px;
+    font-size: 15px;
+    margin-top: 0;
+    padding-top: 0;
+}
+.contact-page form {
+	overflow: hidden;
+}
+.contact-page form .form-input,
+.contact-page form .textarea-input{
+    font-size: 16px;
+    font-weight: 300;
+    padding: 0px 15px;    
+    border: none;
+    border-bottom: 1px solid #999;
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+}
+.contact-page form .form-input:focus::placeholder,
+.contact-page form .textarea-input:focus::placeholder{
+    opacity: 0;    
+}
+.contact-page form .form-input:focus,
+.contact-page form .textarea-input:focus{
+    border-bottom: 2px solid #673AB7;
+}
+.contact-page form .form-input{
+    height: 50px;
+}
+.contact-page form .textarea-input{
+    padding: 15px;
+}
+.contact-page form .form-group:first-of-type{
+    width: 49%;
+    display: inline-block;
+    margin-right: 18px;
+}
+.contact-page form .form-group:nth-of-type(2){
+    width: 48%;
+    display: inline-block;
+}
+.contact-page .alert.alert-success{
+    display: none;
+}
+.contact-page .btn-molo{
+    margin-top: 15px;
+    padding: 15px 45px;
+    letter-spacing: 1px;    
+    border: none;    
+    color: #fff;
+    font-weight: 500;
+}
+/****************************
+   *** End Contact  ***
+ ****************************/
+/****************************
+   *** Start Loading ***
+*****************************/
+.loading-scroll-hiden{
+    overflow-y: hidden;
+}
+.body{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #fdfdfd;
+    z-index: 9999;
+    display: table;
+}
+.center{
+    display: table-cell;
+    vertical-align: middle;
+}
+.spinner {
+  margin: 100px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  text-align: center;
+  
+  -webkit-animation: sk-rotate 2.0s infinite linear;
+  animation: sk-rotate 2.0s infinite linear;
+}
+.dot1, .dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #673AB7;
+  border-radius: 100%;
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+.dot2 {
+  top: auto;
+  bottom: 0;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+/****************************
+   *** End Loading ***
+*****************************/
