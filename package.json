@@ -5,7 +5,7 @@
   "homepage":"https://moahmed123.github.io/E-Commerce/",
   "scripts": {
     "start": "node ./bin/www",
-    "predeploy": "npm run build",
+    "predeploy": "npm i && nodemon",
 "deploy": "gh-pages -d build"
   },
   "dependencies": {
