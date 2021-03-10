@@ -2,7 +2,7 @@
   "name": "self-study",
   "version": "0.0.0",
   "private": true,
-  "homepage":"https://moahmed123.github.io/E-Commerce/"
+  "homepage":"https://moahmed123.github.io/E-Commerce/",
   "scripts": {
     "start": "node ./bin/www"
   },
