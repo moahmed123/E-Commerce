@@ -6,10 +6,21 @@ module.exports.PostProducts = (req, res, next) => {
     // res.json({requestBody: req.body}) 
         
     console.log('Got body:', req.body);
-    console.log('Got body:', req.body.Name);
+    console.log('Got body:', req.body.name);
 
     const Pro = new Products({
-        Name: req.body.Name
+        name: req.body.name,
+        category: req.body.category,
+        subCategory: req.body.subCategory,
+        rate: req.body.rate,
+        reviewCount: req.body.reviewCount,
+        price: req.body.price,
+        discount: req.body.discount,
+        quantity: req.body.quantity,
+        sex: req.body.sex,
+        images: req.body.images,
+        thumbImage: req.body.thumbImage,
+        description:req.body.description,
     })
     Pro.save((err, result) => {
         if (err) {
