@@ -1,4 +1,7 @@
-const Mongoose = require('mongoose')
+const Mongoose = require('mongoose');
+let Products = require('../../models/Products/Products');
+
+
 module.exports._homePgCore = (req, res, next) => {
         /**
          ***  Connect For DB [ Main: is Global Database To choose and switch Other db for User ] ***
@@ -27,12 +30,21 @@ module.exports._homePgCore = (req, res, next) => {
                         let path = req.headers.host;
                         console.log(path)
                         Mongoose.disconnect(() => {
-                            Mongoose.connect(`mongodb://localhost/${doc.storeCode}`, (err_db, result) => {
+                            Mongoose.connect(`mongodb://localhost/userone`, (err_db, result) => {
                                 if (err_db) throw err_db;
-                                Mongoose.connection.db.collection("userdata").findOne({}, (err_db, result) => {
+                                console.log(Mongoose.connection.name)
+                                Mongoose.connection.db.collection("Products").findOne({}, (err_db, result) => {
                                     if (err_db) throw err_db;
-                                    res.status(200).json(result);                                     
+                                    res.status(200).json(result);                                    
                                 })
+                                // Products.find({},"", (err, Products) => {
+                                //     if (err) throw err;
+                                //     if (Products) {
+                                //         console.log(Products);
+                                //         res.status(200).json(Products);  
+                                //     }
+                                
+                                // })
                             });
                         });
                     } else {
@@ -46,6 +58,7 @@ module.exports._homePgCore = (req, res, next) => {
         
             }
          });
+        next();
         // const TemplatesPaths = 'templates';// Templates Paths.
         // const TemplatesApplied = 'Molo';// Templates Currently Applied.
         // //${__dirname}    
