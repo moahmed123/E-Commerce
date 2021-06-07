@@ -8,6 +8,8 @@ import Account from './auth/register/reducer';
 import Login from './auth/login/reducer';
 import Forget from './auth/forgetpwd/reducer';
 
+import getPproducts from './reducer/getPproducts'
+
 const rootReducer = combineReducers({
 
     // public
@@ -16,7 +18,9 @@ const rootReducer = combineReducers({
     // Authentication
     Account,
     Login,
-    Forget
+    Forget,
+
+    getPproducts
 
 });
 

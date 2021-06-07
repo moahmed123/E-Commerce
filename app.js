@@ -27,7 +27,7 @@ app.use(cors());
 // app.use(express.bodyParser());
 // app.use(bodyParser.urlencoded({ extended: false }));
 
-
+app.options('*', cors());
 
 app.use(logger('dev'));
 app.use(express.json());

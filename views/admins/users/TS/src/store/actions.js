@@ -7,4 +7,4 @@ export * from './auth/forgetpwd/actions';
 
 
 // App actions for ecommerce 
-export * from './panalReducer/action';
+export * from './actionsdata/getPro';

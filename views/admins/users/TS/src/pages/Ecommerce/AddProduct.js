@@ -8,9 +8,11 @@ import Dropzone from "react-dropzone";
 
 //select
 import Select from 'react-select';
-import {
-    getProducts
-} from "../../store/actions";
+// import {getProducts} from "../../store/actions";
+
+import {GPDATA} from '../../store/actions';
+
+
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
@@ -52,8 +54,10 @@ class AddProduct extends Component {
     }
     componentDidMount() {
         console.log('test action ')
-        this.props.getProducts();
-        // this.props.dispatch(getProducts())
+        // this.props.getProducts();
+        
+        // this.props.getProducts();
+        // this.props.dispatch(GPDATA.getProducts())
     }
     handleAcceptedFiles = files => {
         files.map(file =>
@@ -339,9 +343,10 @@ class AddProduct extends Component {
         );
     }
 }
-const mapStatetoProps = state => {
-    return {
-        ...state.Layout
-    };
-};
-export default connect(mapStatetoProps, { getProducts })(withRouter(AddProduct));
+// const mapStatetoProps = state => {
+//     return {
+       
+//     };
+// };
+// export default connect(mapStatetoProps)(withRouter(AddProduct));
+export default AddProduct

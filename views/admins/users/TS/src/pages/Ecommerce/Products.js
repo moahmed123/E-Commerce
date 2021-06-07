@@ -11,6 +11,10 @@ import Breadcrumbs from '../../components/Common/Breadcrumb';
 //select
 import Select from 'react-select';
 import { AvForm, AvField } from "availity-reactstrap-validation";
+import { connect } from "react-redux";
+import { GPDATA } from '../../store/actionsdata';
+// import {getProducts} from '../../store/actions';
+
 const optionGroup = [
     {
         label: "Picnic",
@@ -122,7 +126,9 @@ class Products extends Component {
         this.setState({ selectedGroup });
     };
     componentDidMount() {
-        document.getElementsByClassName("pagination")[ 0 ].classList.add("pagination-rounded");
+        // document.getElementsByClassName("pagination")[ 0 ].classList.add("pagination-rounded");
+        console.log('product page');                
+        this.props.dispatch(GPDATA.getPro());
     }
     addBrand = (event, values) => {
         //Assign values to the variables
@@ -447,6 +453,12 @@ class Products extends Component {
                 },
             ]
         }
+        console.log("this.props.ProductData",this.props.ProductData)
+        if(!this.props.ProductData){
+            console.log(this.props.ProductData)
+            return <div>Loading .....</div> 
+            
+        }
         return (
             <React.Fragment>
                 <div className="page-content">
@@ -475,6 +487,123 @@ class Products extends Component {
                                         <TabContent activeTab={ this.state.activeTab }>
                                             <TabPane tabId="1" className="p-3">
                                                 <div className="text-right">
+                                                    <Link to="#" onClick={ () => this.setState({ modal_brand: true, isAlertOpen: false }) } className="btn btn-primary mb-2"><i className="mdi mdi-plus mr-2"></i> Add Product </Link>
+                                                </div>
+                                                <Row>
+                                                    <Col sm="12">
+                                                        <div className="table-responsive mt-3">
+                                                            <Table className="table-centered datatable dt-responsive nowrap " style={ { borderCollapse: "collapse", borderSpacing: 0, width: "100%" } }>
+                                                                <thead className="thead-light">
+                                                                    <tr>
+                                                                        <th style={ { width: "20px" } }>
+                                                                            <div className="custom-control custom-checkbox">
+                                                                                <Input type="checkbox" className="custom-control-input" id="customercheck" />
+                                                                                <Label className="custom-control-label" htmlFor="customercheck">&nbsp;</Label>
+                                                                            </div>
+                                                                        </th>
+                                                                        <th>Brand En</th>
+                                                                        <th>Brand Ar</th>
+                                                                        <th>Joining Date</th>
+                                                                        <th style={ { width: "120px" } }>Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                 
+                                                                      {
+                                                                        this.props.ProductData.map((brandData, key) =>
+                                                                            <tr key={ key }>
+                                                                                <td>
+                                                                                    <div className="custom-control custom-checkbox">
+                                                                                        <Input type="checkbox" className="custom-control-input" id={ "customercheck" + key } />
+                                                                                        <Label className="custom-control-label" htmlFor={ "customercheck" + key }>&nbsp;</Label>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                                <td>{ brandData.name }</td>
+                                                                                <td>{ brandData.category }</td>
+                                                                                <td>
+                                                                                    { brandData.new}
+                                                                                </td>
+                                                                                <td>
+                                                                                    <Link to="#" className="mr-3 text-primary" id={ "edit" + key }><i className="mdi mdi-pencil font-size-18"></i></Link>
+                                                                                    <UncontrolledTooltip target={ "edit" + key } placement="top">
+                                                                                        Edit
+                                                                    </UncontrolledTooltip>
+                                                                                    <Link to="#" className="text-danger" id={ "delete" + key }><i className="mdi mdi-trash-can font-size-18"></i></Link>
+                                                                                    <UncontrolledTooltip target={ "delete" + key } placement="top">
+                                                                                        Delete
+                                                                    </UncontrolledTooltip>
+                                                                                </td>
+                                                                            </tr>
+                                                                        )
+                                                                    }
+                                                                </tbody>
+                                                            </Table>
+                                                        </div>
+
+                                                    </Col>
+                                                </Row>
+                                                <Modal
+                                                    isOpen={ this.state.modal_brand }
+                                                    toggle={ this.tog_static }
+                                                    backdrop="static"
+                                                    centered
+                                                    size="lg"
+                                                >
+                                                    <ModalHeader toggle={ () => this.setState({ modal_brand: false }) }>
+                                                        Add New Brand
+                                                    </ModalHeader>
+                                                    <ModalBody>
+                                                        <AvForm onValidSubmit={ this.addBrand }>
+                                                            <Row>
+                                                                <Col lg={ 12 }>
+                                                                    <Alert color="success" isOpen={ this.state.isAlertOpen } toggle={ () => this.setState({ isAlertOpen: false }) }>
+                                                                        Data Added Successfully...!
+                                                                     </Alert>
+                                                                    <Row>
+                                                                        <Col lg={ 6 }>
+                                                                            <FormGroup>
+                                                                                <Label htmlFor="name">Brand Name(en)</Label>
+                                                                                <AvField
+                                                                                    name="brandname_en"
+                                                                                    type="text"
+                                                                                    className="form-control"
+                                                                                    id="brandname_en"
+                                                                                    placeholder="Enter Brand Name"
+                                                                                    required
+                                                                                />
+                                                                            </FormGroup>
+                                                                        </Col>
+                                                                        <Col lg={ 6 }>
+                                                                            <FormGroup>
+                                                                                <Label htmlFor="name">Brand Name(ar)</Label>
+                                                                                <AvField
+                                                                                    name="brandname_ar"
+                                                                                    type="text"
+                                                                                    className="form-control"
+                                                                                    id="brandname_ar"
+                                                                                    placeholder="Enter Brand Name"
+                                                                                    required
+                                                                                />
+                                                                            </FormGroup>
+                                                                        </Col>
+                                                                    </Row>
+                                                                </Col>
+                                                            </Row>
+
+                                                            <ModalFooter>
+                                                                <Button type="button" color="light" onClick={ () => this.setState({ modal_brand: false }) }>Calcel</Button>
+                                                                <Button type="submit" color="primary">Add</Button>
+                                                            </ModalFooter>
+
+                                                        </AvForm>
+
+                                                    </ModalBody>
+                                                </Modal>
+
+                                            </TabPane>
+                                            <TabPane tabId="2" className="p-3">
+                                                <div className="text-right">
                                                     <Link to="/ecommerce-add-product" className="btn btn-primary mb-2"><i className="mdi mdi-plus mr-2"></i> Add Product</Link>
                                                 </div>
                                                 <Row>
@@ -483,7 +612,7 @@ class Products extends Component {
                                                     </Col>
                                                 </Row>
                                             </TabPane>
-                                            <TabPane tabId="2" className="p-3">
+                                            <TabPane tabId="3" className="p-3">
                                                 <div className="text-right">
                                                     <Link to="#" onClick={ () => this.setState({ modal_category: true, isAlertOpen: false }) } className="btn btn-primary mb-2"><i className="mdi mdi-plus mr-2"></i> Add Category</Link>
                                                 </div>
@@ -576,7 +705,7 @@ class Products extends Component {
                                                     </ModalBody>
                                                 </Modal>
                                             </TabPane>
-                                            <TabPane tabId="3" className="p-3">
+                                            <TabPane tabId="4" className="p-3">
                                                 <div className="text-right">
                                                     <Link to="#" onClick={ () => this.setState({ modal_subcategory: true, isAlertOpen: false }) } className="btn btn-primary mb-2"><i className="mdi mdi-plus mr-2"></i> Add Sub Category</Link>
                                                 </div>
@@ -652,7 +781,7 @@ class Products extends Component {
                                                     </ModalBody>
                                                 </Modal>
                                             </TabPane>
-                                            <TabPane tabId="4" className="p-3">
+                                            <TabPane tabId="5" className="p-3">
                                                 <div className="text-right">
                                                     <Link to="#" onClick={ () => this.setState({ modal_brand: true, isAlertOpen: false }) } className="btn btn-primary mb-2"><i className="mdi mdi-plus mr-2"></i> Add Brand</Link>
                                                 </div>
@@ -780,5 +909,12 @@ class Products extends Component {
         );
     }
 }
+const mapStatetoProps = state => {
+    return {
+       ProductData : state.getPproducts.dataPro
+    };
+};
 
-export default Products;
+export default connect(mapStatetoProps)(Products);
+
+// export default Products;

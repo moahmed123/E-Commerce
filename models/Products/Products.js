@@ -42,7 +42,7 @@ const ProductsSchema = mongoose.Schema({
         required: false
     },
     images: {
-        type: Array,
+        type: Array, 
         required: false
     },
     thumbImage:{
